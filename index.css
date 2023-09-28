@@ -1,0 +1,84 @@
+/* Sign up form */
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+body{
+  background-image: url('https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg');
+}
+.container form {
+  background-color:rgb(0, 153, 255);
+  padding: 1rem;
+}
+
+.container form h1 {
+  color: white;
+  text-align: center;
+}
+
+.container form .inputBox {
+  margin-bottom: 1rem;
+}
+
+.container form .inputBox input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: white;
+}
+
+.container form .inputBox input:focus {
+  border-color: #F7CA18;
+}
+
+.container form .inputBox input::placeholder {
+  color: white;
+}
+
+.container form button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #F7CA18;
+  color: white;
+}
+
+.container form button:hover {
+  background-color: #FFD700;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+}
+
+.footer label {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Alert message */
+.alert{
+  width: 100%;
+  background: rgb(0, 255, 106);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  display: none;
+}  
+
+.alert.active {
+  display: block;
+}

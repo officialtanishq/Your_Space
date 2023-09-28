@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Washing Machine Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+margin:0;
+padding: 0;
+        }
+        body {
+            background-image: url('https://i.pinimg.com/564x/e9/05/d0/e905d09830ecb55972bc6081cf7c52ff.jpg');
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+       nav div{
+        background-image: linear-gradient(to bottom right,rgb(0, 0, 157),rgb(129, 0, 129));
+        text-align: center;
+        margin-bottom: 21px;
+        padding-block: 15px;
+       }
+        #timer-container, #booking-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            background-image : url('https://i.pinimg.com/564x/49/96/65/499665fdd9ea36b270d756a50d34f0e1.jpg');
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            margin-bottom: 20px;
+            margin-inline: auto;
+        }
+
+         h1 {
+            font-size: 30px;
+            margin-bottom: 24px;
+        }
+
+        label {
+            margin-top: 5px;
+            font-size: 18px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        #timer, #bookingOutput {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #timer-container, #booking-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <background-image: url('https://i.pinimg.com/564x/e9/05/d0/e905d09830ecb55972bc6081cf7c52ff.jpg')></background-image:>
+    <nav>
+        <div>
+        <h1>Book your slot for Washing Machine</h1>
+    </div>
+    </nav>
+    <div id="timer-container">
+        <h1>Washing Machine slot Timer</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Your Name"><br><br>
+
+        <label for="time">Time (In Minutes):</label>
+        <input type="number" id="time" placeholder="Enter Time in Minutes"><br><br>
+
+        <button onclick="startTimer()">Start Washing Machine</button>
+
+        <div id="timer"></div>
+    </div>
+
+    <div id="booking-container">
+        <h2>Advance Booking</h2>
+        <label for="advanceName">Name:</label>
+        <input type="text" id="advanceName" placeholder="Enter Your Name"><br><br>
+
+        <button onclick="bookWashingMachine()">Schedule Washing Machine Slot</button>
+
+        <div id="bookingOutput"></div>
+    </div>
+
+    <script>
+        // Yourcript>
+        let countdown;
+        let timerDisplay = document.getElementById('timer');
+      timerDisplay.style.color="green"
+      timerDisplay.style.background="white"
+      timerDisplay.style.padding="10px"
+      timerDisplay.style.borderRadius="5px"
+      timerDisplay.innerHTML="Available";
+        function startTimer() {
+            const name = document.getElementById('name').value;
+            const time = parseInt(document.getElementById('time').value);
+
+            if (!name || isNaN(time) || time <= 0) {
+                alert("Please enter valid name and time.");
+                return;
+            }
+
+timerDisplay = document.getElementById('timer');
+
+            let seconds = time * 60;
+            
+            countdown = setInterval(function() {
+                const minutes = Math.floor(seconds / 60);
+                let remainingSeconds = seconds % 60;
+
+                if (remainingSeconds < 10) {
+                    remainingSeconds = "0" + remainingSeconds;
+                }
+
+                timerDisplay.innerHTML = `Washing Machine Occupied by ${name} for ${minutes}:${remainingSeconds}`;
+
+                if (seconds === 0) {
+                    clearInterval(countdown);
+                    timerDisplay.innerHTML = `Washing Machine is now available`;
+                } else {
+                    seconds--;
+                }
+            }, 1000);
+        }
+
+        function bookWashingMachine() {
+            const advanceName = document.getElementById('advanceName').value;
+            
+            if (!advanceName) {
+                alert("Please enter your name for advance booking.");
+                return;
+            }
+
+            const bookingOutput = document.getElementById('bookingOutput');
+            const currentTime = new Date();
+            const bookingTime = new Date(currentTime.getTime() + 25 * 60 * 1000);
+
+            const hours = bookingTime.getHours();
+            const minutes = bookingTime.getMinutes();
+
+            bookingOutput.innerHTML = `${advanceName}, you will be getting the washing machine at ${hours}:${minutes} hrs`;
+        } 
+    </script>
+    <background-image: url('https://i.pinimg.com/564x/e9/05/d0/e905d09830ecb55972bc6081cf7c52ff.jpg')></background-image:>
+</body>
+</html>
